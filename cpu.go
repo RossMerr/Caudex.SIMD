@@ -5,12 +5,12 @@
 
 package SIMD
 
-var X86 x86
+var X64 x64
 
 func init() {
-	X86.HasSIMD = true
+	X64.HasSIMD = true
 }
 
-type x86 struct {
+type x64 struct {
 	HasSIMD bool
 }

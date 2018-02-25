@@ -7,37 +7,37 @@ package float32x4
 
 import SIMD "github.com/RossMerr/Caudex.SIMD"
 
-var useSIMD = SIMD.X86.HasSIMD
+var useSIMD = SIMD.X64.HasSIMD
 
 //go:noescape
-func AddAMD64(a, b *Float32x4) *Float32x4
+func addAMD64(a, b *Float32x4) *Float32x4
 
-func Add(a, b *Float32x4) *Float32x4 {
+//go:noescape
+func subtractAMD64(a, b *Float32x4) *Float32x4
+
+//go:noescape
+func multiplyAMD64(a, b *Float32x4) *Float32x4
+
+func add(a, b *Float32x4) *Float32x4 {
 	if !useSIMD {
-		return AddGeneric(a, b)
+		return addGeneric(a, b)
 	} else {
-		return AddAMD64(a, b)
+		return addAMD64(a, b)
 	}
 }
 
-//go:noescape
-func MultiplyAMD64(a, b *Float32x4) *Float32x4
-
-func Multiply(a, b *Float32x4) *Float32x4 {
+func multiply(a, b *Float32x4) *Float32x4 {
 	if !useSIMD {
-		return MultiplyGeneric(a, b)
+		return multiplyGeneric(a, b)
 	} else {
-		return MultiplyAMD64(a, b)
+		return multiplyAMD64(a, b)
 	}
 }
 
-//go:noescape
-func SubtractAMD64(a, b *Float32x4) *Float32x4
-
-func Subtract(a, b *Float32x4) *Float32x4 {
+func subtract(a, b *Float32x4) *Float32x4 {
 	if !useSIMD {
-		return SubtractGeneric(a, b)
+		return subtractGeneric(a, b)
 	} else {
-		return SubtractAMD64(a, b)
+		return subtractAMD64(a, b)
 	}
 }

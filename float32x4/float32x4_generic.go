@@ -3,16 +3,12 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+// +build !amd64,!amd64p32,!386,!arm,!s390x,!arm64
+
 package float32x4
 
-func AddGeneric(a, b *Float32x4) *Float32x4 {
-	return nil
-}
+var Add = addGeneric
 
-func MultiplyGeneric(a, b *Float32x4) *Float32x4 {
-	return nil
-}
+var Multiply = multiplyGeneric
 
-func SubtractGeneric(a, b *Float32x4) *Float32x4 {
-	return nil
-}
+var Subtract = subtractGeneric
