@@ -5,9 +5,9 @@
 
 package float32x4
 
-import SIMD "github.com/RossMerr/Caudex.SIMD"
+import "github.com/RossMerr/Caudex.SIMD/internal"
 
-var useSIMD = SIMD.X64.HasSIMD
+var useAVX = internal.X86.HasAVX
 
 //go:noescape
 func addAMD64(a, b *Float32x4) *Float32x4
@@ -19,7 +19,7 @@ func subtractAMD64(a, b *Float32x4) *Float32x4
 func multiplyAMD64(a, b *Float32x4) *Float32x4
 
 func add(a, b *Float32x4) *Float32x4 {
-	if !useSIMD {
+	if !useAVX {
 		return addGeneric(a, b)
 	} else {
 		return addAMD64(a, b)
@@ -27,7 +27,7 @@ func add(a, b *Float32x4) *Float32x4 {
 }
 
 func multiply(a, b *Float32x4) *Float32x4 {
-	if !useSIMD {
+	if !useAVX {
 		return multiplyGeneric(a, b)
 	} else {
 		return multiplyAMD64(a, b)
@@ -35,7 +35,7 @@ func multiply(a, b *Float32x4) *Float32x4 {
 }
 
 func subtract(a, b *Float32x4) *Float32x4 {
-	if !useSIMD {
+	if !useAVX {
 		return subtractGeneric(a, b)
 	} else {
 		return subtractAMD64(a, b)
