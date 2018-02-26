@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/RossMerr/Caudex.SIMD/cpu"
+	"github.com/RossMerr/Caudex.SIMD/internal/cpu"
 )
 
 func TestAMD64minimalFeatures(t *testing.T) {
