@@ -1,0 +1,1 @@
+The internal/cpu package provided here is from the go source code, please refer to the LICENSE file. It's copied out as it's a internal package which implements processor feature detection
