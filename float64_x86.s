@@ -9,35 +9,15 @@
 
 // MOVOU is MOVDQU.
 
-// func addFloat64(x, y []float64) []float64
-TEXT ·addFloat64(SB), NOSPLIT, $0-48
-	MOVQ a+0(FP), SI
-	MOVQ b+24(FP), DI
-	MOVOU (SI), X
-	MOVOU (DI), y
-	ADDPD y, x
-	MOVOU x, (SI)
-	MOVOU y, (DI)
-	RET
-
-// func subtractFloat64(x, y []float64) []float64
-TEXT ·subtractFloat64(SB), NOSPLIT, $0-48
-	MOVQ a+0(FP), SI
-	MOVQ b+24(FP), DI
-	MOVOU (SI), X
-	MOVOU (DI), y
-	SUBPD y, x
-	MOVOU x, (SI)
-	MOVOU y, (DI)
-	RET
-
-// func multiplyFloat64(x, y []float64) []float64
-TEXT ·multiplyFloat64(SB), NOSPLIT, $0-48
-	MOVQ a+0(FP), SI
-	MOVQ b+24(FP), DI
-	MOVOU (SI), X
-	MOVOU (DI), y
-	MULPD y, x
-	MOVOU x, (SI)
-	MOVOU y, (DI)
+// func addfloat64(X1, X2 [2]float64) [2]float64
+TEXT ·Addfloat64(SB), NOSPLIT, $0-48
+	// Stack Pointer to MMX register 0
+	MOVSD   8(SP), X0
+	// Stack Pointer to MMX register 1
+	MOVSD   16(SP), X1
+	// Add Double-Precision Floating-Point values on the MMX register 0 and 1, save to 0
+	ADDSD   X1, X0
+	// MMX register 0 to Stack Pointer
+	MOVSD X0, ret+24(SP)
+	// Return
 	RET
