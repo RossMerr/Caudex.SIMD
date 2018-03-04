@@ -6,6 +6,7 @@
 // used by the Go standard libary.
 package cpu
 
+// X86 architecture
 var X86 x86
 
 // The booleans in x86 contain the correspondingly named cpuid feature bit.
@@ -13,7 +14,7 @@ var X86 x86
 // in addition to the cpuid feature bit being set.
 // The struct is padded to avoid false sharing.
 type x86 struct {
-	_        [CacheLineSize]byte
+	_        [cacheLineSize]byte
 	HasAVX   bool
 	HasAVX2  bool
 	HasSSE2  bool
@@ -21,5 +22,5 @@ type x86 struct {
 	HasSSSE3 bool
 	HasSSE41 bool
 	HasSSE42 bool
-	_        [CacheLineSize]byte
+	_        [cacheLineSize]byte
 }
