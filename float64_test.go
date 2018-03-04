@@ -12,7 +12,7 @@ import (
 	"github.com/RossMerr/Caudex.SIMD"
 )
 
-func Test_addGeneric(t *testing.T) {
+func Test_AddGeneric(t *testing.T) {
 	type args struct {
 		X1 [2]float64
 		X2 [2]float64
@@ -33,6 +33,60 @@ func Test_addGeneric(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := float64SIMD.Addfloat64(tt.args.X1, tt.args.X2); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("addGeneric() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_SubtractGeneric(t *testing.T) {
+	type args struct {
+		X1 [2]float64
+		X2 [2]float64
+	}
+	tests := []struct {
+		name string
+		args args
+		want [2]float64
+	}{
+		{
+			args: args{
+				X1: [2]float64{2, 4},
+				X2: [2]float64{1, 2},
+			},
+			want: [2]float64{1, 2},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := float64SIMD.Subtract(tt.args.X1, tt.args.X2); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("addGeneric() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_MultiplyGeneric(t *testing.T) {
+	type args struct {
+		X1 [2]float64
+		X2 [2]float64
+	}
+	tests := []struct {
+		name string
+		args args
+		want [2]float64
+	}{
+		{
+			args: args{
+				X1: [2]float64{2, 4},
+				X2: [2]float64{1, 2},
+			},
+			want: [2]float64{2, 8},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := float64SIMD.Multiply(tt.args.X1, tt.args.X2); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("addGeneric() = %v, want %v", got, tt.want)
 			}
 		})
