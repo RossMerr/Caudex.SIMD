@@ -5,7 +5,7 @@
 
 // +build !amd64,!amd64p32,!386
 
-package float64SIMD
+package SIMD
 
 var Add = AddGeneric
 

@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-package float64SIMD
+package SIMD
 
 func AddGeneric(X1, X2 [2]float64) [2]float64 {
 	results := [2]float64{}
