@@ -14,20 +14,20 @@ import (
 
 func Test_addGeneric(t *testing.T) {
 	type args struct {
-		X1 float64
-		X2 float64
+		X1 [4]float32
+		X2 [4]float32
 	}
 	tests := []struct {
 		name string
 		args args
-		want float64
+		want [4]float32
 	}{
 		{
 			args: args{
-				X1: 1,
-				X2: 1,
+				X1: [4]float32{1, 2, 3, 4},
+				X2: [4]float32{1, 2, 3, 4},
 			},
-			want: 2,
+			want: [4]float32{2, 4, 6, 8},
 		},
 	}
 	for _, tt := range tests {
