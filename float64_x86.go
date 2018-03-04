@@ -10,7 +10,7 @@ package float64SIMD
 // go:noescape
 
 // Addfloat64 Add Packed Double-Precision Floating-Point Values
-func Addfloat64(x1, x2 [4]float32) [4]float32
+func Addfloat64(x1, x2 [2]float64) [2]float64
 
 // go:noescape
 
