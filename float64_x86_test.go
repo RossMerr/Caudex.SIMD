@@ -3,6 +3,8 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+// +build amd64 amd64p32 386
+
 package SIMD_test
 
 import (
@@ -12,7 +14,7 @@ import (
 	"github.com/RossMerr/Caudex.SIMD"
 )
 
-func Test_AddGeneric(t *testing.T) {
+func Test_Addx86(t *testing.T) {
 	type args struct {
 		X1 [2]float64
 		X2 [2]float64
@@ -32,14 +34,14 @@ func Test_AddGeneric(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := SIMD.Addfloat64(tt.args.X1, tt.args.X2); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("Addfloat64() = %v, want %v", got, tt.want)
+			if got := SIMD.Addx86(tt.args.X1, tt.args.X2); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("Addx86() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func Test_SubtractGeneric(t *testing.T) {
+func Test_Subtractx86(t *testing.T) {
 	type args struct {
 		X1 [2]float64
 		X2 [2]float64
@@ -59,14 +61,14 @@ func Test_SubtractGeneric(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := SIMD.SubtractFloat64(tt.args.X1, tt.args.X2); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("SubtractFloat64() = %v, want %v", got, tt.want)
+			if got := SIMD.Subtractx86(tt.args.X1, tt.args.X2); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("Subtractx86() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func Test_MultiplyGeneric(t *testing.T) {
+func Test_Multiplyx86(t *testing.T) {
 	type args struct {
 		X1 [2]float64
 		X2 [2]float64
@@ -86,8 +88,8 @@ func Test_MultiplyGeneric(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := SIMD.Multiply(tt.args.X1, tt.args.X2); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("MultiplyFloat64() = %v, want %v", got, tt.want)
+			if got := SIMD.Multiplyx86(tt.args.X1, tt.args.X2); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("Multiplyx86() = %v, want %v", got, tt.want)
 			}
 		})
 	}

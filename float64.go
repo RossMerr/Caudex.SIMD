@@ -5,26 +5,29 @@
 
 package SIMD
 
-func AddGeneric(X1, X2 [2]float64) [2]float64 {
+// AddGeneric Add Packed Double-Precision Floating-Point Values
+func AddGeneric(x, y [2]float64) [2]float64 {
 	results := [2]float64{}
 	for i := 0; i < 2; i++ {
-		results[i] = X1[i] + X2[i]
+		results[i] = x[i] + y[i]
 	}
 	return results
 }
 
-func MultiplyGeneric(X1, X2 [4]float64) [4]float64 {
-	results := [4]float64{}
-	for i := 0; i < 4; i++ {
-		results[i] = X1[i] * X2[i]
+// MultiplyGeneric Multiply Packed Double-Precision Floating-Point Values
+func MultiplyGeneric(x, y [2]float64) [2]float64 {
+	results := [2]float64{}
+	for i := 0; i < 2; i++ {
+		results[i] = x[i] * y[i]
 	}
 	return results
 }
 
-func SubtractGeneric(X1, X2 [4]float64) [4]float64 {
-	results := [4]float64{}
-	for i := 0; i < 4; i++ {
-		results[i] = X1[i] - X2[i]
+// SubtractGeneric Subtract Packed Double-Precision Floating-Point Values
+func SubtractGeneric(x, y [2]float64) [2]float64 {
+	results := [2]float64{}
+	for i := 0; i < 2; i++ {
+		results[i] = x[i] - y[i]
 	}
 	return results
 }

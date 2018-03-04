@@ -7,8 +7,8 @@
 
 #include "textflag.h"
 
-// func addfloat64(x, y [2]float64) [2]float64
-TEXT ·Addfloat64(SB), NOSPLIT, $0
+// func Addx86(x, y [2]float64) [2]float64
+TEXT ·Addx86(SB), NOSPLIT, $0
 	// Stack Pointer to MMX register 0 then 1
 	MOVUPD x+0(FP), X0
 	MOVUPD y+16(FP), X1
@@ -19,8 +19,8 @@ TEXT ·Addfloat64(SB), NOSPLIT, $0
 	// Return
 	RET
 
-// func SubtractFloat64(x, y [2]float64) [2]float64
-TEXT ·SubtractFloat64(SB), NOSPLIT, $0
+// func Subtractx86(x, y [2]float64) [2]float64
+TEXT ·Subtractx86(SB), NOSPLIT, $0
 	// Stack Pointer to MMX register 0 then 1
 	MOVUPD x+0(FP), X0
 	MOVUPD y+16(FP), X1
@@ -31,8 +31,8 @@ TEXT ·SubtractFloat64(SB), NOSPLIT, $0
 	// Return
 	RET
 
-// func MultiplyFloat64(x, y [2]float64) [2]float64
-TEXT ·MultiplyFloat64(SB), NOSPLIT, $0
+// func Multiplyx86(x, y [2]float64) [2]float64
+TEXT ·Multiplyx86(SB), NOSPLIT, $0
 	// Stack Pointer to MMX register 0 then 1
 	MOVUPD x+0(FP), X0
 	MOVUPD y+16(FP), X1

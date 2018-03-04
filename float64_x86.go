@@ -9,21 +9,21 @@ package SIMD
 
 // go:noescape
 
-// Addfloat64 Add Packed Double-Precision Floating-Point Values
-func Addfloat64(x, y [2]float64) [2]float64
+// Addx86 Add Packed Double-Precision Floating-Point Values
+func Addx86(x, y [2]float64) [2]float64
 
 // go:noescape
 
-// SubtractFloat64 Subtract Packed Double-Precision Floating-Point Values
-func SubtractFloat64(x, y [2]float64) [2]float64
+// Subtractx86 Subtract Packed Double-Precision Floating-Point Values
+func Subtractx86(x, y [2]float64) [2]float64
 
 // go:noescape
 
-// MultiplyFloat64 Multiply Packed Double-Precision Floating-Point Values
-func MultiplyFloat64(x, y [2]float64) [2]float64
+// Multiplyx86 Multiply Packed Double-Precision Floating-Point Values
+func Multiplyx86(x, y [2]float64) [2]float64
 
-var Add = Addfloat64
+var Add = Addx86
 
-var Multiply = MultiplyFloat64
+var Multiply = Multiplyx86
 
-var Subtract = SubtractFloat64
+var Subtract = Subtractx86
