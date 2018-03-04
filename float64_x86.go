@@ -43,9 +43,3 @@ func init() {
 		Subtract = SubtractGeneric
 	}
 }
-
-var Add PackedDoubleFloat
-
-var Multiply PackedDoubleFloat
-
-var Subtract PackedDoubleFloat

@@ -7,8 +7,10 @@
 
 package SIMD
 
-var Add = AddGeneric
+func init() {
+	Add = AddGeneric
 
-var Multiply = MultiplyGeneric
+	Multiply = MultiplyGeneric
 
-var Subtract = SubtractGeneric
+	Subtract = SubtractGeneric
+}
