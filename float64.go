@@ -31,3 +31,6 @@ func SubtractGeneric(x, y [2]float64) [2]float64 {
 	}
 	return results
 }
+
+// PackedDoubleFloat take two Packed Double-Precision Floating-Point Values and does a arithmetic operation
+type PackedDoubleFloat = func(x, y [2]float64) [2]float64

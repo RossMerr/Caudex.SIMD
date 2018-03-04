@@ -7,6 +7,8 @@
 
 package SIMD
 
+import "github.com/RossMerr/Caudex.SIMD/internal/cpu"
+
 // go:noescape
 
 // Addx86 Add Packed Double-Precision Floating-Point Values
@@ -22,8 +24,28 @@ func Subtractx86(x, y [2]float64) [2]float64
 // Multiplyx86 Multiply Packed Double-Precision Floating-Point Values
 func Multiplyx86(x, y [2]float64) [2]float64
 
-var Add = Addx86
+func init() {
+	if cpu.X86.HasSSE2 {
+		Add = Addx86
+	} else {
+		Add = AddGeneric
+	}
 
-var Multiply = Multiplyx86
+	if cpu.X86.HasSSE2 {
+		Multiply = Multiplyx86
+	} else {
+		Multiply = MultiplyGeneric
+	}
 
-var Subtract = Subtractx86
+	if cpu.X86.HasSSE2 {
+		Subtract = Subtractx86
+	} else {
+		Subtract = SubtractGeneric
+	}
+}
+
+var Add PackedDoubleFloat
+
+var Multiply PackedDoubleFloat
+
+var Subtract PackedDoubleFloat
